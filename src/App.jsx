@@ -9,14 +9,15 @@ function App(){
     "Fine, get jeremy a beer"
 
   ]);
-  function generateTodoComponent(item,index){
-    return <TodoItem key ={index} text={item}/>;
-  }
-
-  return <>
-  <h1>My todo list</h1>
-  {todoItems.map(generateTodoComponent)}
-  </>;
+   
+  return (
+    <>
+      <h1>My todo list</h1>
+      {todoItems.map((item, index) => (
+        <TodoItem key ={index} text ={item}/>
+      ))}
+    </>
+  );
 }
 
 export default App;
