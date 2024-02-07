@@ -10,14 +10,19 @@ function App(){
     "Fine, get jeremy a beer"
 
   ]);
-   
+
+  const addTodoItem = (text) => {
+    const newTodoItems = [...todoItems, text];
+    setTodoItems(newTodoItems);
+  };
+
   return (
     <>
       <h1>My todo list</h1>
       {todoItems.map((item, index) => (
         <TodoItem key ={index} text ={item}/>
       ))}
-      <TodoForm/>
+      <TodoForm addTodoItem={addTodoItem} />
     </>
   );
 }
