@@ -1,5 +1,7 @@
+import './styles.css'
+
 function TodoItem(props){
 
-    return<div>{props.text}</div>;
+    return<div className='todo-item'>{props.text}</div>;
 }
 export default TodoItem;
