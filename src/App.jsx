@@ -18,8 +18,20 @@ function App(){
   ]);
 
   const addTodoItem = (text) => {   // bring in the new input text into the function
-    const newTodoItems = [...todoItems, { text }];    // the new array is the 'exsisting array' + the text that was inputted into the input feild
+    const newTodoItems = [...todoItems, { text }];    // the new array is the 'exsisting array' and the text that was inputted into the input feild
     setTodoItems(newTodoItems);    // update the todoitems state with the new array
+  };
+
+  const completeTodoItem = (index) => {
+    const newTodoItems = [...todoItems];
+    newTodoItems[index].isCompleted = true;
+    setTodoItems(newTodoItems);
+  };
+
+  const removeTodoItem = (index) => {
+    const newTodoItems = [...todoItems];
+    newTodoItems.splice(index,1);
+    setTodoItems(newTodoItems);
   };
 
   return (
@@ -27,7 +39,7 @@ function App(){
     <div className='app'>
       <h1 className='todo-list'>My todo list</h1>
       {todoItems.map((todoItem, index) => (
-        <TodoItem todoItem ={todoItem} key ={index} />
+        <TodoItem todoItem ={todoItem} key ={index} index={index} completeTodoItem={completeTodoItem} removeTodoItem={removeTodoItem}/>
       ))}
       <TodoForm addTodoItem={addTodoItem} />
     </div>
