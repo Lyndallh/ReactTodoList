@@ -10,7 +10,7 @@ function TodoItem(props){
                     props.completeTodoItem(props.index)}>Complete</button>
                 <button onClick={() =>
                     props.removeTodoItem(props.idex)}>x</button>
-            </div>;
+            </div>
         </div>
         );
 

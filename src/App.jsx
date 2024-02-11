@@ -6,7 +6,7 @@ import './App.css';
 function App(){
   const [todoItems, setTodoItems] = useState([
     {
-      text:"Bring in the roosters at night",
+      text:"Sushi Rice",
       isCompleted: false
     },{
       text:"Cover cage with a blanket",
@@ -24,8 +24,12 @@ function App(){
 
   const completeTodoItem = (index) => {
     const newTodoItems = [...todoItems];
-    newTodoItems[index].isCompleted = true;
-    setTodoItems(newTodoItems);
+    if(newTodoItems[index].isCompleted){ // Check if the todo item at the given index is completed
+      newTodoItems[index].isCompleted = false; // If it's completed, set it to false (toggle off)
+    }else{
+      newTodoItems[index].isCompleted = true;  // If it's not completed, set it to true (toggle on)
+    }
+    setTodoItems(newTodoItems); // Update the todoItems state with the new array
   };
 
   const removeTodoItem = (index) => {
@@ -37,7 +41,7 @@ function App(){
   return (
     //this is what is rendered in the html under the root div src="/src/main.jsx"
     <div className='app'>
-      <h1 className='todo-list'>My todo list</h1>
+      <h1 className='todo-list'>Suzie's todo list</h1>
       {todoItems.map((todoItem, index) => (
         <TodoItem todoItem ={todoItem} key ={index} index={index} completeTodoItem={completeTodoItem} removeTodoItem={removeTodoItem}/>
       ))}
