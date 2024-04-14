@@ -43,7 +43,13 @@ function App(){
     <div className='app'>
       <h1 className='todo-list'>Suzie's todo list</h1>
       {todoItems.map((todoItem, index) => (
-        <TodoItem todoItem ={todoItem} key ={index} index={index} completeTodoItem={completeTodoItem} removeTodoItem={removeTodoItem}/>
+        <TodoItem 
+        todoItem = {todoItem} 
+        key = {index} 
+        index = {index} 
+        completeTodoItem = {completeTodoItem} 
+        removeTodoItem = {removeTodoItem}
+        />
       ))}
       <TodoForm addTodoItem={addTodoItem} />
     </div>
